@@ -7,6 +7,7 @@ const TableHeader = () => {
 			<tr>
 				<th>Nome</th>
 				<th>Profissão</th>
+				<th></th>
 			</tr>
 		</thead>
 	)
@@ -19,6 +20,9 @@ const TableBody = props => {
 			<tr key={index}>
 				<td>{row.nome}</td>
 				<td>{row.profissao}</td>
+				<td>
+					<button onClick={() => props.removePessoa(index)}>Delete</button>
+				</td>
 			</tr>
 		)
 	})
@@ -32,14 +36,18 @@ const TableBody = props => {
 
 class Table extends Component {
 
+	constructor(props) {
+		super(props)
+	}
+
 	render() {
 
-		const { objetosData } = this.props
+		const { objetosData, removePessoa } = this.props
 
 		return (
 			<table>
 				<TableHeader />
-				<TableBody objetosData={objetosData} />
+				<TableBody objetosData={objetosData} removePessoa={removePessoa} />
 			</table>
 		)
 	}

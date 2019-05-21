@@ -1,35 +1,51 @@
 import React, { Component } from 'react'
 import Table from './Table'
+import Form from './Form'
 
 class App extends Component {
-	render() {
 
-		const objetos = [
-			{
-				nome: 'Charlie',
-				profissao: 'Janitor',
-			},
-			{
-				nome: 'Mac',
-				profissao: 'Bouncer',
-			},
-			{
-				nome: 'Dee',
-				profissao: 'Aspring actress',
-			},
-			{
-				nome: 'Dennis',
-				profissao: 'Bartender',
-			},
-			{
-				nome: 'Rodrigo',
-				profissao: 'Programador',
-			},
-		]
+	/*constructor(props){
+		super(props);
+		this.state = {
+			squares: Array(9).fill(null),
+			xIsNext: true,
+		};
+	}*/
+
+	constructor(props) {
+		super(props);
+
+		this.state = {
+			pessoas: []
+		}
+
+	}
+
+
+	removePessoa = index => {
+
+		const { pessoas } = this.state
+
+		//Cria uma nova array com todos os valores, menos o índice enviado como parâmetro
+		this.setState({
+			pessoas: pessoas.filter((pessoa, i) => {
+				return i !== index
+			}),
+		})
+
+	}
+
+
+	handleSubmit = pessoa => {
+		this.setState({ pessoas: [...this.state.pessoas, pessoa] })
+	}
+
+	render() {
 
 		return (
 			<div className="container">
-				<Table objetosData={objetos} />
+				<Table objetosData={this.state.pessoas} removePessoa={this.removePessoa} />
+				<Form handleSubmit={this.handleSubmit} />
 			</div>
 		)
 	}
