@@ -36,10 +36,6 @@ const TableBody = props => {
 
 class Table extends Component {
 
-	constructor(props) {
-		super(props)
-	}
-
 	render() {
 
 		const { objetosData, removePessoa } = this.props
