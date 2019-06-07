@@ -10,8 +10,8 @@ const Routes = () => (
 	//Exact  = só chama a primeira rota quando a url for EXATA igual ao path
 	<BrowserRouter>
 		<Switch>
-			<Route exact path="/" component={Main} />
-			<Route path="/products/:id" component={Product} />
+			<Route exact path={`${process.env.PUBLIC_URL}/`} component={Main} />
+			<Route path={`${process.env.PUBLIC_URL}/products/:id`} component={Product} />
 		</Switch>
 	</BrowserRouter>
 

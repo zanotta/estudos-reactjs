@@ -21,6 +21,8 @@ export default class Main extends Component {
 
 		const response = await api.get('/products?page='+page);
 
+		console.log(response);
+
 		//Docs = retorno api
 		//...productInfo = o conteudo MENOS o conteúdo que foi solicitado na variável anterior
 		const { docs, ...productInfo } = response.data;
