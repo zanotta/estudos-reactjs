@@ -1,7 +1,7 @@
 import React from 'react';
 import './styles.css';
 import Header from './Components/Header';
-import Main from './Pages/Main';
+import Routes from './routes';
 
 class App extends React.Component {
 
@@ -9,7 +9,7 @@ class App extends React.Component {
 		return (
 			<div className="App">
 				<Header />
-				<Main />
+				<Routes />
 			</div>
 		);
 	}
